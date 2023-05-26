@@ -57,6 +57,7 @@ ElectronPhoton Energy channel - ResnetV1 - Depths 20, 44 - 40 epochs
 - Sweep using Chen Ansatz (3 layers). Using DRC.
 - Feature maps: Amplitude, Angle, Basis.
 - 10 epochs
+
 ---
 
 ### Quantum CNN
@@ -91,8 +92,12 @@ _________________________________________________________________
 
 </ul>
 </div>
+</div>
+
 ---
+
 ### Results
+
 | Feature Map      | Acc | Val acc|
 | ----- | ----- | ----- |
 | Amp    |0.9375      | 0 .933    |
@@ -106,6 +111,7 @@ BasisMap without DRC gives the same scores.
 <img src="images/mmnist-qcnn-chen/loss.png"  height="auto" width="380px">
 <img src="images/mmnist-qcnn-chen/val_acc.png"  height="auto" width="380px">
 </div>
+
 ---
 
 #### <span style="color: #F19C99">QCNN on EP</span>
@@ -164,6 +170,7 @@ cluster: 7 train acc is: 90.44 prediction acc is: 64.30
 - Train scores are higher than predicition scores.
 - Even by restricting the number of features test scores does not increase.
 - Need to spend more than on feature engineering on the dataset.
+
 ---
 
 ## Status
@@ -201,16 +208,11 @@ cluster: 7 train acc is: 90.44 prediction acc is: 64.30
 
 ## References
 
-<div class='small-font'>
-    <ul>    
-        <li> Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8</li>
-        <li>S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,''
-Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231</li>
-        <li>Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3</li>
-        <li>Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9</li>
-        <li>Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.</li>
-        <li>Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks. </li>
-        <li>Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network. </li>
-    </ul>
-</div>
+- Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8
+- S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,'' Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231
+- Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3
+- Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9
+- Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.
+- Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks.
+- Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network.
 
