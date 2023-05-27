@@ -1,7 +1,7 @@
 title: GSoC 22 Progress
 email: dahalegopal27@gmail.com
 description: Slides showing progress done during GSoC 22 with ML4SCI
-baseurl:  "gsoc_22_ml4sci_qmlhep"
+baseurl:  ""
 url: ""
 github_username: Gopal-Dahale
 
@@ -9,4 +9,3 @@ github_username: Gopal-Dahale
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-spaceship
-  - jekyll-pdf-embed
