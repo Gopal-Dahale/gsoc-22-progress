@@ -22,7 +22,7 @@ revealOptions:
 
 </style>
 
-#### Tuned some hyperparameters
+## Tuned some hyperparameters
 
 - Cropped to 10 $\times$ 10 instead of 8 $\times$ 8 for the Electron-Photon dataset.
 - Used batch size of 1024 over the full dataset.
@@ -32,7 +32,7 @@ revealOptions:
 
 ---
 
-###### With Data augmentation
+## With Data augmentation
 
 <p class='small-font null'> Train AUC: <b>0.70</b>  |  Test AUC: <b>0.70</b></p>
 
@@ -45,7 +45,7 @@ revealOptions:
 
 ---
 
-###### Without Data augmentation
+## Without Data augmentation
 
 <p class='small-font null'> Train AUC: <b>0.76</b>  |  Test AUC: <b>0.759</b></p>
 
@@ -57,7 +57,7 @@ revealOptions:
 
 ---
 
-###### What now?
+## What now?
 
 - The data augmentation might need tuning. It has parameters like factor of rotation and fill mode.
 - Testing these might give some better results.

@@ -27,7 +27,7 @@ revealOptions:
 
 </style>
 
-###### Results on EP dataset with QCNN Hybrid
+## Results on EP dataset with QCNN Hybrid
 
 <p class='small-font'>10k samples - 2 QConv2D Layers - 2 qubits per layer - 1 Dropout between FC layers</p>
 <p class='small-font'>train acc: 0.6515 | val_acc: 0.5522</p>
@@ -66,13 +66,14 @@ Models with less data (10k) starts to overfit while models with large data (100k
 
 ---
 
-###### Using JAX with pennylane
+## Using JAX with pennylane
 
 - Results in huge speedup even on cpu.
 - jax.vmap transform to make running batches of circuits much easier. 
 - vmap essentially transforms a single quantum computer into multiple running in parallel!
+
 ---
-###### Preliminary Results on MNIST
+### Preliminary Results on MNIST
 Binary classes: 3 and 6. Center crop to (20,20). Resized to (8,8). Standardized
 
 ```
@@ -105,7 +106,7 @@ Padding: Same - Kernel: (3,3): Strides: (1,1)
 
 ---
 
-###### Results
+## Results
 
 <p class='small-font'>1 QConv2D Layer - 1 qubit - 5 epochs only </p>
 <p class='small-font'>train acc: 0.9956 | val_acc: 0.9856</p>
@@ -118,7 +119,7 @@ Padding: Same - Kernel: (3,3): Strides: (1,1)
 
 ---
 
-###### Results on EP
+## Results on EP
 Center crop to (8,8).  Standardized
 ```
 ╒════════╤══════════════════╤══════════════════╤══════════════════╤═══════════╕
@@ -142,10 +143,10 @@ Center crop to (8,8).  Standardized
 ```
 ---
 
-###### Results
+## Results
 
 <p class='small-font'>1 QConv2D Layer - 1 qubit - 10 epochs only </p>
-<p class='small-font'>train acc: 0.6641 | val_acc: 0.6593</p>
+<p class='small-font'>train acc: 0.6641 | val acc: 0.6593</p>
 
 <img src="images/EP-QCNNHybrid-Sparse-JAX/acc.png"  height="auto" width="420px">
 <img src="images/EP-QCNNHybrid-Sparse-JAX/loss.png"  height="auto" width="420px">
@@ -155,7 +156,7 @@ Center crop to (8,8).  Standardized
 
 ---
 
-##### Comparing TFQ and JAX for EP
+## Comparing TFQ and JAX for EP
 
 In the same settings on CPU
 - TFQ takes roughly 15-20 mins per epoch whereas JAX takes 5-6 seconds. 

@@ -93,6 +93,8 @@ revealOptions:
     <li> Strides: 2 x 2</li>
 </ul>
 </div>
+</div>
+
 ---
 
 ###### Results
@@ -154,19 +156,20 @@ revealOptions:
     <li> Strides: 2 x 2</li>
 </ul>
 </div>
+</div>
+
 ---
 
-###### Results
+
+## Results
 
 <img src="images/layerwise-learning-hybrid/t2/phase1-train.png"  height="auto" width="380px">
 <img src="images/layerwise-learning-hybrid/t2/phase1-test.png"  height="auto" width="380px">
-<hr>
-<img src="images/layerwise-learning-hybrid/t2/phase2-train.png"  height="auto" width="380px">
-<img src="images/layerwise-learning-hybrid/t2/phase2-test.png"  height="auto" width="380px">
+<!-- <hr> -->
+<!-- <img src="images/layerwise-learning-hybrid/t2/phase2-train.png"  height="auto" width="380px">
+<img src="images/layerwise-learning-hybrid/t2/phase2-test.png"  height="auto" width="380px"> -->
 
 ---
-
-
 ## Status
 <div class="container">
 
@@ -200,16 +203,10 @@ revealOptions:
 
 ## References
 
-<div class='small-font'>
-    <ul>    
-        <li> Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8</li>
-        <li>S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,''
-Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231</li>
-        <li>Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3</li>
-        <li>Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9</li>
-        <li>Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.</li>
-        <li>Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecturere for Quantum Fully Convolutional Networks. </li>
-        <li>Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network. </li>
-    </ul>
-</div>
-
+- Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8
+- S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,'' Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231
+- Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3
+- Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9
+- Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.
+- Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks.
+- Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network.

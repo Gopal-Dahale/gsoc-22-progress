@@ -93,6 +93,7 @@ $$
 
 
 - *[A Multi-Classification Hybrid Quantum Neural Network Using an All-Qubit Multi-Observable Measurement Strategy](https://www.mdpi.com/1099-4300/24/3/394)
+
 ---
 
 ### Datasets
@@ -108,9 +109,9 @@ $$
     - Train: 1000, Val: 250, Test: 138
 
 ---
-###### Results for EP single qubit
+## Results for EP single qubit
 
-<p class='small-font'>train acc: 0.59 | val_acc: 0.55</p>
+<p class='small-font'>train acc: 0.59 | val acc: 0.55</p>
 
 <img src="images/EP-QCNNHybrid-Sparse/acc.png"  height="auto" width="450px">
 <img src="images/EP-QCNNHybrid-Sparse/loss.png"  height="auto" width="450px">
@@ -120,9 +121,9 @@ $$
 
 ---
 
-#### Results for EP 2 qubits
+## Results for EP 2 qubits
 
-<p class='small-font'>train acc: 0.7168  | val_acc: 0.55</p>
+<p class='small-font'>train acc: 0.7168  | val acc: 0.55</p>
 
 <img src="images/EP-QCNNHybrid-Sparse-2/acc.png"  height="auto" width="450px">
 <img src="images/EP-QCNNHybrid-Sparse-2/loss.png"  height="auto" width="450px">
@@ -132,9 +133,9 @@ $$
 
 ---
 
-#### Results for QG single qubit
+## Results for QG single qubit
 
-<p class='small-font'>train acc: 0.8380 | val_acc: 0.576</p>
+<p class='small-font'>train acc: 0.8380 | val acc: 0.576</p>
 
 <img src="images/QG-QCNNHybrid-Sparse/acc.png"  height="auto" width="450px">
 <img src="images/QG-QCNNHybrid-Sparse/loss.png"  height="auto" width="450px">

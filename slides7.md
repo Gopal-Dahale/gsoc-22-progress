@@ -18,11 +18,12 @@ revealOptions:
 </style>
 
 
-###### Using JAX with pennylane
+## Using JAX with pennylane
 
 - Results in huge speedup even on cpu.
 - jax.vmap transform to make running batches of circuits much easier. 
 - vmap essentially transforms a single quantum computer into multiple running in parallel!
+
 ---
 
 ### Model Architecture
@@ -33,7 +34,7 @@ Padding: Same - Kernel: (3,3): Strides: (1,1)
 
 ---
 
-###### Results on EP
+## Results on EP
 Center crop to (8,8).  Standardized
 ```
 ╒════════╤══════════════════╤══════════════════╤══════════════════╤═══════════╕
@@ -57,7 +58,7 @@ Center crop to (8,8).  Standardized
 ```
 ---
 
-###### Results
+## Results
 
 <p class='small-font'>1 QConv2D Layer</p>
 <p class='small-font'>Best Test Acc: <b>0.6998</b>  |  AUC: <b>0.7518</b></p>
@@ -65,7 +66,7 @@ Center crop to (8,8).  Standardized
 <img src="images/EP2-QCNNHybrid-Sparse-JAX.png"  height="auto" width="1200px">
 ---
 
-###### Results on QG
+## Results on QG
 Center crop to (40,40). Log Scaled. Standardized. 
 ```
 ╒════════╤════════════════════╤═══════════════════╤════════════════════╤═════════════╕
@@ -89,7 +90,7 @@ Center crop to (40,40). Log Scaled. Standardized.
 ```
 ---
 
-###### Results
+## Results
 
 <p class='small-font'>1 QConv2D Layer</p>
 <p class='small-font'>Best Test Acc: <b>0.6367</b>  |  AUC: <b>0.6887</b></p>
@@ -97,7 +98,7 @@ Center crop to (40,40). Log Scaled. Standardized.
 <img src="images/QG2-QCNNHybrid-Sparse-JAX.png"  height="auto" width="1200px">
 ---
 
-###### Results on EP dataset with QCNN Hybrid
+## Results on EP dataset with QCNN Hybrid
 
 <p class='small-font'>380k Train | 20k val | 98k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
 <p class='small-font'>Best Test Acc: <b>0.6875</b>  |  AUC: <b>0.7415</b></p>
@@ -110,7 +111,7 @@ Center crop to (40,40). Log Scaled. Standardized.
 
 ---
 
-###### Resnet Residual block like Architecture
+## Resnet Residual block like Architecture
 
 <p class='small-font'>380k Train | 20k val | 98k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
 <p class='small-font'>Best Test Acc: <b>0.6875</b>  |  AUC: <b>0.7406</b></p>
@@ -123,7 +124,7 @@ Center crop to (40,40). Log Scaled. Standardized.
 
 ---
 
-###### Results on QG dataset with QCNN Hybrid
+## Results on QG dataset with QCNN Hybrid
 
 <p class='small-font'>665k Train | 35k val | 93.9k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
 <p class='small-font'>Test Acc: <b>0.6215</b>  |  AUC: <b>0.6666</b></p>

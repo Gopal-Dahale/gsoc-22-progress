@@ -16,7 +16,7 @@ revealOptions:
 }
 </style>
 
-###### Quantum Convolutional Neural Networks for High Energy Physics Analysis at the LHC
+## Quantum Convolutional Neural Networks for High Energy Physics Analysis at the LHC
 
 <div>
 <img src="./images/final/intro.png"  height="auto" width="500px" display='block' />
@@ -36,7 +36,7 @@ Mentor: Prof. <a href ='http://sergeigleyzer.com/'> Sergei V. Gleyzer </a>
 
 ---
 
-###### Datasets
+## Datasets
 
 
 
@@ -62,7 +62,7 @@ The image shows the energy and time channels for electrons (top) and photons (bo
 For training only energy channel is used.
 
 ---
-###### Preprocessing map
+## Preprocessing map
 
 <img src="./images/data_preprocessing.png"  height="auto" width="800px" display='block' />
 
@@ -90,7 +90,7 @@ For training only ECAL channel is used.
 
 ---
 
-###### Hybrid QCNN Architectures
+## Hybrid QCNN Architectures
 
 <img src="./images/qconv2d-jax.png"  height="auto" width="600px" display='block' />
 
@@ -101,7 +101,7 @@ Illustrations have a kernel size of (3,3). Circuits are followed by classical fu
 
 ---
 
-###### Results on Electron Photon
+## Results on Electron Photon
 
 <p class='small-font null'> 90k train, 20k test samples, Arch1 (left), Arch2 (right)</b></p>
 
@@ -114,7 +114,7 @@ Best Test AUC:
 
 ---
 
-###### Results on Quark Gluon
+## Results on Quark Gluon
 
 <p class='small-font null'> 90k train, 20k test samples, Arch1 </b></p>
 
@@ -124,6 +124,7 @@ Best Test AUC:
 - QCNN: 0.64
 
 Models tend ot Overfit.
+
 ---
 
 
@@ -142,13 +143,14 @@ Models tend ot Overfit.
 
 ---
 
-###### Discussion
+## Discussion
 
 - Quantum models perform at par with classical models with same number of parameters.
-- Increasing the qubits or layers does not necessarily increases the AUC. Had to tune these hyperparameters. 
+- Increasing the qubits or layers does not necessarily increases the AUC. Had to tune these hyperparameters.
+ 
 ---
 
-###### Future work
+## Future work
 
 - Classical vision transformers seems promising. Implementing the quantum version might give some advantage.
 - Using gradient free optimization techniques to train quantum neural network.
@@ -157,17 +159,10 @@ Models tend ot Overfit.
 
 ## References
 
-<div class='small-font'>
-    <ul> 
-        <li>A Tutorial on Quantum Convolutional Neural Networks (QCNN) ◦Seunghyeok Oh, † Jaeho Choi, and ◦ Joongheon Kim</li>   
-        <li> Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8</li>
-        <li>S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,''
-Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231</li>
-        <li>Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3</li>
-        <li>Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9</li>
-        <li>Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.</li>
-        <li>Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks. </li>
-        <li>Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network. </li>
-    </ul>
-</div>
-
+- Cong, I., Choi, S. & Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8
+- S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,'' Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231
+- Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3
+- Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9
+- Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., & Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.
+- Chen, Yusui & Hu, Wenhao & Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks.
+- Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network.

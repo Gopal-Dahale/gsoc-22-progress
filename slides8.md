@@ -22,7 +22,7 @@ revealOptions:
 
 </style>
 
-###### Some classical Results 
+## Some classical Results 
 
 <p class='small-font null'><b>EP</b> Train AUC: <b>0.82</b>  |  Test AUC: <b>0.76</b></p>
 <p class='small-font null'><b>QG</b> Train AUC: <b>0.72</b>  |  Test AUC: <b>0.70</b></p>
@@ -36,7 +36,7 @@ revealOptions:
 
 ---
 
-###### Tested Two Ansatzes
+## Tested Two Ansatzes
 
 ```
 ──H──RZ(M0)──RY(M1)──RZ(M2)─┤  <Z>
@@ -52,6 +52,7 @@ revealOptions:
 -  18 trainable parameters for 1 qubit 1 layer with kernel size of (3,3).
 
 - Tested on ElectronPhoton dataset with 90k train and 10k validation.
+
 ---
 
 ### Results 
