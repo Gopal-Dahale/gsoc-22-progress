@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Overfitting’s Fault | GSoC 22 Progress</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="Overfitting’s Fault">
+<meta name="author" content="Gopal-Dahale">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<meta property="og:description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<link rel="canonical" href="https://gopal-dahale.github.io/slides5.html">
+<meta property="og:url" content="https://gopal-dahale.github.io/slides5.html">
+<meta property="og:site_name" content="GSoC 22 Progress">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Overfitting’s Fault">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gopal-Dahale"},"description":"This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.","headline":"Overfitting’s Fault","url":"https://gopal-dahale.github.io/slides5.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ead1a8c5e05b6fd821b7a05f0e824ac2c077bf00">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Overfitting’s Fault</h1>
+      <h2 class="project-tagline">This is a very personal blog. I don't write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.</h2>
+      
+        <a href="https://github.com/Gopal-Dahale/gsoc-22-progress" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="overfittings-fault">Overfitting’s Fault</h1>
+
+<hr>
+<p>revealOptions:
+  transition: ‘fade’
+  transitionSpeed: ‘fast’
+  width: 1400
+—</p>
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+.small-font{
+    font-size:20px;
+}
+
+/* - Quark Gluon
+    - 0 1 images
+    - 500 images per class
+    - Center cropped $\rightarrow$ (40,40)
+    - Log Scaling
+    - Standardize
+- DRC Ansatz
+- Feature maps: No need
+- Layerwise learning */
+
+</style>
+
+<h3 id="qcnn-hybrid-architecture">QCNN Hybrid Architecture</h3>
+
+<ul>
+  <li>Using 1 and 2 qubits due to longer training time with more qubits.</li>
+  <li>Dense layers of 8 and 2 units after ansatz.</li>
+</ul>
+
+<div class="col">
+<img src="images/nqubit-sparse.png" height="auto" width="400px">
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ───H───Z^w0───Y^w1───Z^w2───
+</code></pre></div></div>
+<ul>
+  <li>For a kernel size of $(k,k)$ each gate has $k^2 + 1$ params.</li>
+</ul>
+
+<hr>
+
+<h3 id="qcnn-hybrid-architecture-single-qubit">QCNN Hybrid Architecture Single Qubit</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Layer (type)                Output Shape              Param #
+=================================================================
+ input_1 (InputLayer)        [(None, 8, 8, 1)]         0
+ qconv2d_1 (QConv2D)         (None, 6, 6, 1)           30
+ flatten (Flatten)           (None, 36)                0
+ dense (Dense)               (None, 8)                 296
+ dense_1 (Dense)             (None, 2)                 18
+=================================================================
+Total params: 344
+Trainable params: 344
+Non-trainable params: 0
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0, 0): ───H───Z^w0───Y^w1───Z^w2───
+</code></pre></div></div>
+<hr>
+
+<h3 id="qcnn-hybrid-architecture-2-qubits">QCNN Hybrid Architecture 2 Qubits</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Layer (type)                Output Shape              Param #
+=================================================================
+ input_1 (InputLayer)        [(None, 8, 8, 1)]         0
+ qconv2d_1 (QConv2D)         (None, 6, 6, 6)           60
+ flatten (Flatten)           (None, 216)               0
+ dense (Dense)               (None, 8)                 1736
+ dense_1 (Dense)             (None, 2)                 18
+=================================================================
+Total params: 1,814
+Trainable params: 1,814
+Non-trainable params: 0
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(0, 0): ───H───Z^w0───Y^w1───Z^w2───@───
+                                    │
+(0, 1): ───H───Z^w3───Y^w4───Z^w5───@───
+</code></pre></div></div>
+<hr>
+
+<h4 id="all-qubit-multi-observable-measurement-strategy">All-Qubit Multi-Observable Measurement Strategy*</h4>
+
+<p>$$
+m_{AMM} =\left( m_{q_0,σ_x}, m_{q_0,σ_y}, m_{q_0,σ_z},\dots,m_{q_{n−1},σ_x},m_{q_{n−1},σ_y},m_{q_{n−1},σ_z}\right)
+$$</p>
+
+<ul>
+  <li>*<a href="https://www.mdpi.com/1099-4300/24/3/394">A Multi-Classification Hybrid Quantum Neural Network Using an All-Qubit Multi-Observable Measurement Strategy</a>
+</li>
+</ul>
+
+<hr>
+
+<h3 id="datasets">Datasets</h3>
+
+<ul>
+  <li>For both Electron-Photon (8,8) and Quark-Gluon (40,40)
+    <ul>
+      <li>Log Scaling</li>
+      <li>Standardize</li>
+    </ul>
+  </li>
+  <li>Electron Photon
+    <ul>
+      <li>Train: 7200, Val: 1800, Test: 1000</li>
+    </ul>
+  </li>
+  <li>Quark Gluon
+    <ul>
+      <li>Train: 1000, Val: 250, Test: 138</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+<h2 id="results-for-ep-single-qubit">Results for EP single qubit</h2>
+
+<p class="small-font">train acc: 0.59 | val acc: 0.55</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse/acc.png" height="auto" width="450px">
+<img src="images/EP-QCNNHybrid-Sparse/loss.png" height="auto" width="450px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse/val_acc.png" height="auto" width="450px">
+<img src="images/EP-QCNNHybrid-Sparse/val_loss.png" height="auto" width="450px"></p>
+
+<hr>
+
+<h2 id="results-for-ep-2-qubits">Results for EP 2 qubits</h2>
+
+<p class="small-font">train acc: 0.7168  | val acc: 0.55</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse-2/acc.png" height="auto" width="450px">
+<img src="images/EP-QCNNHybrid-Sparse-2/loss.png" height="auto" width="450px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse-2/val_acc.png" height="auto" width="450px">
+<img src="images/EP-QCNNHybrid-Sparse-2/val_loss.png" height="auto" width="450px"></p>
+
+<hr>
+
+<h2 id="results-for-qg-single-qubit">Results for QG single qubit</h2>
+
+<p class="small-font">train acc: 0.8380 | val acc: 0.576</p>
+
+<p><img src="images/QG-QCNNHybrid-Sparse/acc.png" height="auto" width="450px">
+<img src="images/QG-QCNNHybrid-Sparse/loss.png" height="auto" width="450px">
+<br>
+<img src="images/QG-QCNNHybrid-Sparse/val_acc.png" height="auto" width="450px">
+<img src="images/QG-QCNNHybrid-Sparse/val_loss.png" height="auto" width="450px"></p>
+
+<hr>
+
+<h2 id="status">Status</h2>
+<div class="container">
+
+<div class="col">
+<span style="color:#97D077"> Done: </span>
+
+- Trained QCNNHybrid on EP and QG. Models are overfitting.
+</div>
+
+<div class="col">
+<span style="color:#7EA6E0"> Goals for next week: </span>
+
+- Training with more samples.
+- Will try to use dropout layer.
+- Can increase qubits at the expense of time.
+- Adding more QConv2D layers.
+</div>
+
+<div class="col">
+<span style="color:#F19C99"> Questions: </span>
+
+- Is 1000 samples enough? 
+- Will increasing the number of QConv2D layers help?
+
+</div>
+
+</div>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Gopal-Dahale/gsoc-22-progress">gsoc-22-progress</a> is maintained by <a href="https://github.com/Gopal-Dahale">Gopal-Dahale</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

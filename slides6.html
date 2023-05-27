@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Couples Retreat | GSoC 22 Progress</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="Couples Retreat">
+<meta name="author" content="Gopal-Dahale">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<meta property="og:description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<link rel="canonical" href="https://gopal-dahale.github.io/slides6.html">
+<meta property="og:url" content="https://gopal-dahale.github.io/slides6.html">
+<meta property="og:site_name" content="GSoC 22 Progress">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Couples Retreat">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gopal-Dahale"},"description":"This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.","headline":"Couples Retreat","url":"https://gopal-dahale.github.io/slides6.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ead1a8c5e05b6fd821b7a05f0e824ac2c077bf00">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Couples Retreat</h1>
+      <h2 class="project-tagline">This is a very personal blog. I don't write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.</h2>
+      
+        <a href="https://github.com/Gopal-Dahale/gsoc-22-progress" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="couples-retreat">Couples Retreat</h1>
+
+<hr>
+<p>revealOptions:
+  transition: ‘fade’
+  transitionSpeed: ‘fast’
+  width: 1400
+—</p>
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+.small-font{
+    font-size:20px;
+}
+
+/* - Quark Gluon
+    - 0 1 images
+    - 500 images per class
+    - Center cropped $\rightarrow$ (40,40)
+    - Log Scaling
+    - Standardize
+- DRC Ansatz
+- Feature maps: No need
+- Layerwise learning */
+
+</style>
+
+<h2 id="results-on-ep-dataset-with-qcnn-hybrid">Results on EP dataset with QCNN Hybrid</h2>
+
+<p class="small-font">10k samples - 2 QConv2D Layers - 2 qubits per layer - 1 Dropout between FC layers</p>
+<p class="small-font">train acc: 0.6515 | val\_acc: 0.5522</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse-2-QConv2D/acc.png" height="auto" width="420px">
+<img src="images/EP-QCNNHybrid-Sparse-2-QConv2D/loss.png" height="auto" width="420px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse-2-QConv2D/val_acc.png" height="auto" width="420px">
+<img src="images/EP-QCNNHybrid-Sparse-2-QConv2D/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<p class="small-font">10k samples - 1 QConv2D Layer - 2 qubits - Kernel (2,2) </p>
+<p class="small-font">train acc: 0.6772 | val\_acc: 0.5738</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse-2-2/acc.png" height="auto" width="440px">
+<img src="images/EP-QCNNHybrid-Sparse-2-2/loss.png" height="auto" width="440px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse-2-2/val_acc.png" height="auto" width="440px">
+<img src="images/EP-QCNNHybrid-Sparse-2-2/val_loss.png" height="auto" width="440px"></p>
+
+<hr>
+
+<p class="small-font">100k samples - 1 QConv2D Layer - 2 qubits - 10 epochs only </p>
+<p class="small-font">train acc: 0.5976 | val\_acc: 0.6399</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse-dataset-2/acc.png" height="auto" width="440px">
+<img src="images/EP-QCNNHybrid-Sparse-dataset-2/loss.png" height="auto" width="440px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse-dataset-2/val_acc.png" height="auto" width="440px">
+<img src="images/EP-QCNNHybrid-Sparse-dataset-2/val_loss.png" height="auto" width="440px"></p>
+
+<hr>
+
+<p>Models with less data (10k) starts to overfit while models with large data (100k) might have some potential but takes quite a time.</p>
+
+<hr>
+
+<h2 id="using-jax-with-pennylane">Using JAX with pennylane</h2>
+
+<ul>
+  <li>Results in huge speedup even on cpu.</li>
+  <li>jax.vmap transform to make running batches of circuits much easier.</li>
+  <li>vmap essentially transforms a single quantum computer into multiple running in parallel!</li>
+</ul>
+
+<hr>
+<h3 id="preliminary-results-on-mnist">Preliminary Results on MNIST</h3>
+<p>Binary classes: 3 and 6. Center crop to (20,20). Resized to (8,8). Standardized</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒════════╤══════════════════╤═════════════════╤═════════════════╤═══════════╕
+│ Data   │ Train size       │ Val size        │ Test size       │ Dims      │
+╞════════╪══════════════════╪═════════════════╪═════════════════╪═══════════╡
+│ X      │ (10844, 8, 8, 1) │ (1205, 8, 8, 1) │ (1968, 8, 8, 1) │ (8, 8, 1) │
+├────────┼──────────────────┼─────────────────┼─────────────────┼───────────┤
+│ y      │ (10844, 2)       │ (1205, 2)       │ (1968, 2)       │ (2,)      │
+╘════════╧══════════════════╧═════════════════╧═════════════════╧═══════════╛
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒══════════════╤═══════╤═══════╤════════╤═══════╤══════════════════════════╕
+│ Type         │   Min │   Max │   Mean │   Std │ Samples for each class   │
+╞══════════════╪═══════╪═══════╪════════╪═══════╪══════════════════════════╡
+│ Train Images │ -1.77 │ 23.08 │   0    │  1    │ [5326, 5518]             │
+├──────────────┼───────┼───────┼────────┼───────┼──────────────────────────┤
+│ Val Images   │ -1.77 │ 16.33 │  -0    │  1    │ [592, 613]               │
+├──────────────┼───────┼───────┼────────┼───────┼──────────────────────────┤
+│ Test Images  │ -1.77 │ 15.09 │   0.02 │  1.01 │ [958, 1010]              │
+╘══════════════╧═══════╧═══════╧════════╧═══════╧══════════════════════════╛
+</code></pre></div></div>
+<hr>
+
+<h3 id="model-architecture">Model Architecture</h3>
+
+<p>Padding: Same - Kernel: (3,3): Strides: (1,1)</p>
+
+<p><img src="images/qconv2d-jax.png" height="auto" width="850px"></p>
+
+<hr>
+
+<h2 id="results">Results</h2>
+
+<p class="small-font">1 QConv2D Layer - 1 qubit - 5 epochs only </p>
+<p class="small-font">train acc: 0.9956 | val\_acc: 0.9856</p>
+
+<p><img src="images/MNIST-QCNNHybrid-Sparse-JAX/acc.png" height="auto" width="420px">
+<img src="images/MNIST-QCNNHybrid-Sparse-JAX/loss.png" height="auto" width="420px">
+<br>
+<img src="images/MNIST-QCNNHybrid-Sparse-JAX/val_acc.png" height="auto" width="420px">
+<img src="images/MNIST-QCNNHybrid-Sparse-JAX/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<h2 id="results-on-ep">Results on EP</h2>
+<p>Center crop to (8,8).  Standardized</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒════════╤══════════════════╤══════════════════╤══════════════════╤═══════════╕
+│ Data   │ Train size       │ Val size         │ Test size        │ Dims      │
+╞════════╪══════════════════╪══════════════════╪══════════════════╪═══════════╡
+│ X      │ (90000, 8, 8, 1) │ (10000, 8, 8, 1) │ (20000, 8, 8, 1) │ (8, 8, 1) │
+├────────┼──────────────────┼──────────────────┼──────────────────┼───────────┤
+│ y      │ (90000, 2)       │ (10000, 2)       │ (20000, 2)       │ (2,)      │
+╘════════╧══════════════════╧══════════════════╧══════════════════╧═══════════╛
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒══════════════╤═══════╤════════╤════════╤═══════╤══════════════════════════╕
+│ Type         │   Min │    Max │   Mean │   Std │ Samples for each class   │
+╞══════════════╪═══════╪════════╪════════╪═══════╪══════════════════════════╡
+│ Train Images │ -2.88 │ 106.87 │      0 │  1    │ [45000, 45000]           │
+├──────────────┼───────┼────────┼────────┼───────┼──────────────────────────┤
+│ Val Images   │ -2.88 │  58.46 │     -0 │  0.99 │ [5000, 5000]             │
+├──────────────┼───────┼────────┼────────┼───────┼──────────────────────────┤
+│ Test Images  │ -2.88 │  64.88 │     -0 │  0.98 │ [10000, 10000]           │
+╘══════════════╧═══════╧════════╧════════╧═══════╧══════════════════════════╛
+</code></pre></div></div>
+<hr>
+
+<h2 id="results-1">Results</h2>
+
+<p class="small-font">1 QConv2D Layer - 1 qubit - 10 epochs only </p>
+<p class="small-font">train acc: 0.6641 | val acc: 0.6593</p>
+
+<p><img src="images/EP-QCNNHybrid-Sparse-JAX/acc.png" height="auto" width="420px">
+<img src="images/EP-QCNNHybrid-Sparse-JAX/loss.png" height="auto" width="420px">
+<br>
+<img src="images/EP-QCNNHybrid-Sparse-JAX/val_acc.png" height="auto" width="420px">
+<img src="images/EP-QCNNHybrid-Sparse-JAX/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<h2 id="comparing-tfq-and-jax-for-ep">Comparing TFQ and JAX for EP</h2>
+
+<p>In the same settings on CPU</p>
+<ul>
+  <li>TFQ takes roughly 15-20 mins per epoch whereas JAX takes 5-6 seconds.</li>
+  <li>The first epoch of JAX took 16s whereas for TFQ its ~18 mins.</li>
+</ul>
+
+<p>Some drawbacks of JAX</p>
+<ul>
+  <li>Had to code the Architecture from scratch including NN layers, loss calculation and gradient updation.</li>
+</ul>
+
+<hr>
+
+<h2 id="status">Status</h2>
+<div class="container">
+
+<div class="col">
+<span style="color:#97D077"> Done: </span>
+
+- Trained QCNNHybrid on EP with TFQ. Models are overfitting or takes very long time.
+- Created QCNN and JAX and done preliminary training on MNIST and EP.
+</div>
+
+<div class="col">
+<span style="color:#7EA6E0"> Goals for next week: </span>
+
+- Training with more samples for EP and QG.
+- Training on TPU for larger datasets.
+- Tuning Hyperparameters to get best results.
+</div>
+
+<div class="col">
+<span style="color:#F19C99"> Questions: </span>
+
+- Any feedback on JAX?
+- Any other feedback?
+
+</div>
+
+</div>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Gopal-Dahale/gsoc-22-progress">gsoc-22-progress</a> is maintained by <a href="https://github.com/Gopal-Dahale">Gopal-Dahale</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

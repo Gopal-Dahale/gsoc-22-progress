@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Where the Magic Happens | GSoC 22 Progress</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="Where the Magic Happens">
+<meta name="author" content="Gopal-Dahale">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<meta property="og:description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<link rel="canonical" href="https://gopal-dahale.github.io/slides3.html">
+<meta property="og:url" content="https://gopal-dahale.github.io/slides3.html">
+<meta property="og:site_name" content="GSoC 22 Progress">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Where the Magic Happens">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gopal-Dahale"},"description":"This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.","headline":"Where the Magic Happens","url":"https://gopal-dahale.github.io/slides3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ead1a8c5e05b6fd821b7a05f0e824ac2c077bf00">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Where the Magic Happens</h1>
+      <h2 class="project-tagline">This is a very personal blog. I don't write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.</h2>
+      
+        <a href="https://github.com/Gopal-Dahale/gsoc-22-progress" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="where-the-magic-happens">Where the Magic Happens</h1>
+
+<hr>
+<p>revealOptions:
+  transition: ‘fade’
+  transitionSpeed: ‘fast’
+  width: 1400
+—</p>
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+.small-font{
+    font-size:25px;
+}
+</style>
+
+<h2 id="quark-gluon-ecal">Quark Gluon ECAL</h2>
+
+<ul>
+  <li>Cropped to 40 x 40</li>
+  <li>Log Scaled</li>
+  <li>Standardize</li>
+</ul>
+
+<div>
+<img src="images/qg-pt-std.png" height="auto" width="600px">
+</div>
+
+<hr>
+
+<h4 id="classical-models">Classical Models</h4>
+
+<p>Quark Gluon ECAL - ResnetV2 - Depths 20, 44 - 100 epochs</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Depth</th>
+      <th>Acc</th>
+      <th>Val acc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>20</td>
+      <td>0.99</td>
+      <td>0 .58</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>0.99</td>
+      <td>0.561</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>0.99</td>
+      <td>0.58</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+<img src="images/qg-ecal-resnetv2/acc.png" height="auto" width="450px">
+<img src="images/qg-ecal-resnetv2/loss.png" height="auto" width="450px">
+<img src="images/qg-ecal-resnetv2/val_acc.png" height="auto" width="450px">
+</div>
+
+<hr>
+
+<h3 id="results-on-pretrained-model">Results on Pretrained model</h3>
+
+<ul>
+  <li>Resnet50 $\rightarrow$ 512 $\rightarrow$ 128 $\rightarrow$ 2</li>
+  <li>Using Log scaling with Ranger Optimizer</li>
+  <li>Acc: 0.6621, Val Acc: 0.6133</li>
+</ul>
+
+<div>
+<img src="images/qg-ecal-resnet50/acc.png" height="auto" width="460px">
+<img src="images/qg-ecal-resnet50/loss.png" height="auto" width="460px">
+<img src="images/qg-ecal-resnet50/val_acc.png" height="auto" width="460px">
+</div>
+<hr>
+
+<h3 id="results-on-quantum-cnn">Results on Quantum CNN</h3>
+
+<ul>
+  <li>Quark Gluon
+    <ul>
+      <li>0 1 images</li>
+      <li>360 images per class</li>
+      <li>Center cropped $\rightarrow$ (40,40)</li>
+      <li>Log Scaling</li>
+      <li>Standardize</li>
+    </ul>
+  </li>
+  <li>DRC Ansatz</li>
+  <li>Feature maps: No need</li>
+  <li>
+    <h2 id="20-epochs">20 epochs</h2>
+  </li>
+</ul>
+
+<h4 id="qcnn-on-quark-gluon">QCNN on Quark Gluon</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 40, 40, 1)]       0         
+                                                                 
+ qconv2d_1 (QConv2D)         (None, 20, 20, 1)         80        
+                                                                 
+ qconv2d_2 (QConv2D)         (None, 10, 10, 1)         80        
+                                                                 
+ flatten (Flatten)           (None, 100)               0         
+                                                                 
+ NQubitPQC (NQubitPQC)       (None, 1)                 808       
+                                                                 
+=================================================================
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Total params: 968
+Trainable params: 968
+Non-trainable params: 0
+</code></pre></div></div>
+<hr>
+
+<h4 id="quantum-circuit">Quantum Circuit</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                 ┌──┐
+(0, 0): ───H───Y^w0───@───Y^w4─────@────
+                      │            │
+(0, 1): ───H───Y^w1───@───Y^w5────@┼────
+                                  ││
+(0, 2): ───H───Y^w2───@───Y^w6────@┼────
+                      │            │
+(0, 3): ───H───Y^w3───@───Y^w7─────@────
+                                 └──┘
+</code></pre></div></div>
+
+<div class="container">
+
+<div class="col">
+<img src="images/nqubit-sparse.png" height="auto" width="400px">
+</div>
+
+<div class="col">
+<ul>
+    <li>Kernel size: 3 x 3</li>
+    <li> Strides: 2 x 2</li>
+</ul>
+</div>
+
+</div>
+
+<hr>
+
+<h4 id="results">Results</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Acc</th>
+      <th>Val acc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.5</td>
+      <td>0 .5</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+<img src="images/qg-qcnn-nqubit/acc.png" height="auto" width="380px">
+<img src="images/qg-qcnn-nqubit/loss.png" height="auto" width="380px">
+<img src="images/qg-qcnn-nqubit/val_acc.png" height="auto" width="380px">
+</div>
+
+<hr>
+
+<h2 id="layerwise-learning"><span style="color: #7EA6E0">Layerwise learning</span></h2>
+
+<div>
+<img src="images/layerwise-learning.png" height="auto" width="450px">
+</div>
+
+<ul>
+  <li>Train small layers for fixed epochs. Add new layers, freeze previous layers.</li>
+  <li>Repeat for desired depth.</li>
+  <li>Additional optimization of larger subsets of layers.</li>
+</ul>
+
+<hr>
+
+<h2 id="status">Status</h2>
+<div class="container">
+
+<div class="col">
+<span style="color:#97D077"> Done: </span>
+
+- Preliminary results on Quark Gluon (classical &amp; quantum).
+- [WIP] Layerwise learning for Quark Gluon
+</div>
+
+<div class="col">
+<span style="color:#7EA6E0"> Goals for next week: </span>
+
+- Train classical models with less params to avoid overfit.
+- Train Quark Gluon with layerwise learning with small and then large number of samples.
+- Setup TPU on GCP if possible.
+</div>
+
+<div class="col">
+<span style="color:#F19C99"> Questions: </span>
+
+- Suggestions on training with larger number of samples as it takes significant time?
+- Any other feedback?
+
+</div>
+
+</div>
+
+<hr>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Cong, I., Choi, S. &amp; Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8</li>
+  <li>S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,’’ Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231</li>
+  <li>Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3</li>
+  <li>Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9</li>
+  <li>Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., &amp; Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.</li>
+  <li>Chen, Yusui &amp; Hu, Wenhao &amp; Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks.</li>
+  <li>Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network.</li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Gopal-Dahale/gsoc-22-progress">gsoc-22-progress</a> is maintained by <a href="https://github.com/Gopal-Dahale">Gopal-Dahale</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

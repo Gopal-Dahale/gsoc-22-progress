@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fame of the Convolution | GSoC 22 Progress</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="Fame of the Convolution">
+<meta name="author" content="Gopal-Dahale">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<meta property="og:description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<link rel="canonical" href="https://gopal-dahale.github.io/slides1.html">
+<meta property="og:url" content="https://gopal-dahale.github.io/slides1.html">
+<meta property="og:site_name" content="GSoC 22 Progress">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Fame of the Convolution">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gopal-Dahale"},"description":"This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.","headline":"Fame of the Convolution","url":"https://gopal-dahale.github.io/slides1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ead1a8c5e05b6fd821b7a05f0e824ac2c077bf00">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Fame of the Convolution</h1>
+      <h2 class="project-tagline">This is a very personal blog. I don't write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.</h2>
+      
+        <a href="https://github.com/Gopal-Dahale/gsoc-22-progress" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="fame-of-the-convolution">Fame of the Convolution</h1>
+
+<hr>
+<p>revealOptions:
+  transition: ‘fade’
+  transitionSpeed: ‘fast’
+  width: 1400
+—</p>
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+.small-font{
+    font-size:25px;
+}
+</style>
+
+<h2 id="classical-models">Classical Models</h2>
+
+<div>
+<img src="./images/Residual-Block.png" height="auto" width="400px" display="block">
+</div>
+
+<ul>
+  <li>Resnet v1* and v2+ (both have slightly different architecture)</li>
+  <li>Classical CNN (variable Conv and FC layers)</li>
+  <li>FFNN (variable FC layers)</li>
+</ul>
+
+<p>Last two will be used to for comparing results with Quantum models</p>
+
+<ul>
+  <li>*<a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a>
+</li>
+  <li>+<a href="https://arxiv.org/abs/1603.05027">Identity Mappings in Deep Residual Networks</a>
+</li>
+</ul>
+
+<hr>
+
+<h2 id="quantum-outline">Quantum outline</h2>
+
+<p><img src="./images/data_preprocessing.png" height="auto" width="800px"></p>
+
+<hr>
+
+<h2 id="dataset-sizes"><span style="color: #97D077">Dataset sizes</span></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Train</th>
+      <th>Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MNIST</td>
+      <td>12665</td>
+      <td>2115</td>
+    </tr>
+    <tr>
+      <td>ElectronPhoton*</td>
+      <td>9000</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>QuarkGluon*</td>
+      <td>9000</td>
+      <td>1000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>*Randomly sampled.</p>
+
+<hr>
+
+<h2 id="data-preperation"><span style="color: #97D077">Data preperation</span></h2>
+
+<div>
+<img src="./images/mnist-zero-one.png" height="auto" width="200px">
+<img src="./images/ep-mean.png" height="auto" width="200px">
+<img src="./images/qg.png" height="auto" width="200px">
+</div>
+
+<ul>
+  <li>PCA</li>
+  <li>Standardize</li>
+  <li>Center Crop</li>
+  <li>Graph Convolution</li>
+  <li>Min max scaling (-pi, pi)</li>
+</ul>
+
+<hr>
+
+<h2 id="encoding-circuits"><span style="color: #F19C99">Encoding Circuits</span></h2>
+<div class="container">
+
+<div class="col">
+Angle Map  <br>
+
+(0, 0): ───Rx(pi*x0)───  <br>
+ 
+(0, 1): ───Rx(pi*x1)───  <br>
+
+(0, 2): ───Rx(pi*x2)───  <br>
+
+(0, 3): ───Rx(pi*x3)───  <br>
+
+</div>
+
+<div class="col">
+Double Angle Map
+
+ ───Ry(pi*atan(x0))───Rz(pi*atan(x1**2))───
+
+ ───Ry(pi*atan(x2))───Rz(pi*atan(x3**2))───
+
+ ───Ry(pi*atan(x4))───Rz(pi*atan(x5**2))───
+
+ ───Ry(pi*atan(x6))───Rz(pi*atan(x7**2))───
+
+</div>
+
+</div>
+<hr>
+
+<h2 id="encoding-circuits-contd"><span style="color: #F19C99">Encoding Circuits Contd.</span></h2>
+<p>Amplitude Map*</p>
+<div class="container">
+
+<div class="col">
+<img src="./images/amplitudemap.png" height="auto" width="800px">
+</div>
+
+<div class="col">
+<img src="./images/beta.png" height="auto" width="400px">
+</div>
+
+</div>
+
+<p>*<a href="https://link.springer.com/book/10.1007/978-3-319-96424-9">Supervised Learning with Quantum Computers</a></p>
+
+<hr>
+
+<h2 id="quantum-model"><span style="color: #7EA6E0">Quantum model</span></h2>
+
+<p><img src="./images/conv_circuit.png" height="auto" width="600px"></p>
+
+<p>Figure from <a href="https://arxiv.org/abs/2012.12177">Quantum convolutional neural networks for high energy physics data analysis</a></p>
+
+<hr>
+
+<h2 id="ansatzes"><span style="color: #7EA6E0">Ansatzes</span></h2>
+
+<p><img src="./images/qcnn.png" height="auto" width="280px" display="block">
+<img src="./images/qcnn2.png" height="auto" width="350px" display="block">
+<img src="./images/ansatz2.png" height="auto" width="650px" display="block"></p>
+
+<ul>
+  <li>Observable: $-0.5Z + 0.5 I$</li>
+  <li>Loss Function: Binary cross entropy</li>
+  <li>Implementation: tfq.layers.ControlledPQC</li>
+  <li>Data ReUploading or not? Pass an argument.</li>
+  <li>More ansatzes comming soon.</li>
+  <li>Single qubit classifier?</li>
+</ul>
+
+<hr>
+
+<h2 id="evaluation"><span style="color: #FFB570">Evaluation</span></h2>
+
+<p>Classical Models</p>
+
+<ul>
+  <li>Performed Multi-GPU Hyperparameter Sweeps on Resnet v1 and v2 with MNIST, ElectronPhoton and QuarkGluon</li>
+  <li>learning rates $\in$ 0.01, 0.001, 0.0003</li>
+  <li>Resnet v1 depths $\in$ 20, 40, 110</li>
+  <li>Resnet v1 depths $\in$ 20, 56, 110</li>
+  <li>(3 $\times$ 3 ) $\implies$ 9 runs per model per dataset</li>
+</ul>
+
+<hr>
+
+<h2 id="results">Results</h2>
+
+<p>MNIST Resnet V1</p>
+<div>
+<img src="./images/mnist-resnetv1.png" height="auto" width="600px" display="block">
+</div>
+
+<hr>
+
+<h2 id="results-contd">Results Contd.</h2>
+
+<p>Electron Photon Resnet V1</p>
+<div>
+<img src="./images/ep-resnetv1.png" height="auto" width="550px" display="block">
+</div>
+
+<hr>
+
+<h2 id="results-contd-1">Results Contd.</h2>
+
+<p>Electron Photon Resnet V2</p>
+<div>
+<img src="./images/ep-resnetv1.png" height="auto" width="550px" display="block">
+</div>
+
+<hr>
+
+<h2 id="results-contd-2">Results Contd.</h2>
+
+<p>More visualizations on <a href="https://wandb.ai/gopald/qml-hep-lhc?workspace=user-gopald">here</a></p>
+
+<hr>
+
+<h2 id="quantum-status">Quantum Status</h2>
+
+<ul>
+  <li>Created ansatzes for Chen et al. and Cong at el.</li>
+  <li>Trained those for sampled dataset</li>
+  <li>Facing some issues while training model on big dataset (posted on slack)</li>
+  <li>Seeking a workaround for it.</li>
+</ul>
+
+<hr>
+
+<h2 id="status">Status</h2>
+<div class="container">
+
+<div class="col">
+<span style="color:#97D077"> Done: </span>
+
+- Data preprocessing
+- Classical models training
+- Encoding circuits
+- Ansatzes (Chen et al. and Cong at el)
+- Trained locally on small samples
+</div>
+
+<div class="col">
+<span style="color:#7EA6E0"> Goals for next week: </span>
+
+- Fixing training bug
+- Sandwich circuits between classical layers.
+- Train ansatzes on larger dataset
+- Try DRC
+- Try single qubit classifier
+</div>
+
+<div class="col">
+<span style="color:#F19C99"> Questions: </span>
+
+- Shall we try multi class classification? Do we need it in particle physics?
+- Any help with the bug? 
+- Any suggestion for papers?
+- Any other feedback?
+</div>
+
+</div>
+
+<hr>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>Cong, I., Choi, S. &amp; Lukin, M.D. Quantum convolutional neural networks. Nat. Phys. 15, 1273–1278 (2019). https://doi.org/10.1038/s41567-019-0648-8</li>
+  <li>S.~Y.~C.~Chen, T.~C.~Wei, C.~Zhang, H.~Yu and S.~Yoo, ``Quantum convolutional neural networks for high energy physics data analysis,’’ Phys. Rev. Res. \textbf{4} (2022) no.1, 013231 doi:10.1103/PhysRevResearch.4.013231</li>
+  <li>Liu, J., Lim, K.H., Wood, K.L. et al. Hybrid quantum-classical convolutional neural networks. Sci. China Phys. Mech. Astron. 64, 290311 (2021). https://doi.org/10.1007/s11433-021-1734-3</li>
+  <li>Tüysüz, C., Rieger, C., Novotny, K. et al. Hybrid quantum classical graph neural networks for particle track reconstruction. Quantum Mach. Intell. 3, 29 (2021). https://doi.org/10.1007/s42484-021-00055-9</li>
+  <li>Pérez-Salinas, A., Cervera-Lierta, A., Gil-Fuster, E., &amp; Latorre, J. (2020). Data re-uploading for a universal quantum classifier. Quantum, 4, 226.</li>
+  <li>Chen, Yusui &amp; Hu, Wenhao &amp; Li, Xiang. (2021). Feasible Architecture for Quantum Fully Convolutional Networks.</li>
+  <li>Chen, Yixiong. (2021). QDCNN: Quantum Dilated Convolutional Neural Network.</li>
+</ul>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Gopal-Dahale/gsoc-22-progress">gsoc-22-progress</a> is maintained by <a href="https://github.com/Gopal-Dahale">Gopal-Dahale</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

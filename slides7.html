@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A Quantum Convolution to Remember | GSoC 22 Progress</title>
+<meta name="generator" content="Jekyll v3.9.3">
+<meta property="og:title" content="A Quantum Convolution to Remember">
+<meta name="author" content="Gopal-Dahale">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<meta property="og:description" content="This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.">
+<link rel="canonical" href="https://gopal-dahale.github.io/slides7.html">
+<meta property="og:url" content="https://gopal-dahale.github.io/slides7.html">
+<meta property="og:site_name" content="GSoC 22 Progress">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="A Quantum Convolution to Remember">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Gopal-Dahale"},"description":"This is a very personal blog. I don’t write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.","headline":"A Quantum Convolution to Remember","url":"https://gopal-dahale.github.io/slides7.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ead1a8c5e05b6fd821b7a05f0e824ac2c077bf00">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">A Quantum Convolution to Remember</h1>
+      <h2 class="project-tagline">This is a very personal blog. I don't write blogs for anyone, but just record what I do or what I think. So there are many things wrong and you may have different thoughts. It would be nice if I share knowledge and thoughts rather than criticism. It will be great help if you give and teach your knowledge and thoughts to me.</h2>
+      
+        <a href="https://github.com/Gopal-Dahale/gsoc-22-progress" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <h1 id="a-quantum-convolution-to-remember">A Quantum Convolution to Remember</h1>
+
+<hr>
+<p>revealOptions:
+  transition: ‘fade’
+  transitionSpeed: ‘fast’
+  width: 1400
+—</p>
+<style>
+.container{
+    display: flex;
+}
+.col{
+    flex: 1;
+}
+.small-font{
+    font-size:20px;
+}
+
+</style>
+
+<h2 id="using-jax-with-pennylane">Using JAX with pennylane</h2>
+
+<ul>
+  <li>Results in huge speedup even on cpu.</li>
+  <li>jax.vmap transform to make running batches of circuits much easier.</li>
+  <li>vmap essentially transforms a single quantum computer into multiple running in parallel!</li>
+</ul>
+
+<hr>
+
+<h3 id="model-architecture">Model Architecture</h3>
+
+<p>Padding: Same - Kernel: (3,3): Strides: (1,1)</p>
+
+<p><img src="images/qconv2d-jax.png" height="auto" width="850px"></p>
+
+<hr>
+
+<h2 id="results-on-ep">Results on EP</h2>
+<p>Center crop to (8,8).  Standardized</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒════════╤══════════════════╤══════════════════╤══════════════════╤═══════════╕
+│ Data   │ Train size       │ Val size         │ Test size        │ Dims      │
+╞════════╪══════════════════╪══════════════════╪══════════════════╪═══════════╡
+│ X      │ (90000, 8, 8, 1) │ (10000, 8, 8, 1) │ (20000, 8, 8, 1) │ (8, 8, 1) │
+├────────┼──────────────────┼──────────────────┼──────────────────┼───────────┤
+│ y      │ (90000, 2)       │ (10000, 2)       │ (20000, 2)       │ (2,)      │
+╘════════╧══════════════════╧══════════════════╧══════════════════╧═══════════╛
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒══════════════╤═══════╤════════╤════════╤═══════╤══════════════════════════╕
+│ Type         │   Min │    Max │   Mean │   Std │ Samples for each class   │
+╞══════════════╪═══════╪════════╪════════╪═══════╪══════════════════════════╡
+│ Train Images │ -2.88 │ 106.87 │      0 │  1    │ [45000, 45000]           │
+├──────────────┼───────┼────────┼────────┼───────┼──────────────────────────┤
+│ Val Images   │ -2.88 │  58.46 │     -0 │  0.99 │ [5000, 5000]             │
+├──────────────┼───────┼────────┼────────┼───────┼──────────────────────────┤
+│ Test Images  │ -2.88 │  64.88 │     -0 │  0.98 │ [10000, 10000]           │
+╘══════════════╧═══════╧════════╧════════╧═══════╧══════════════════════════╛
+</code></pre></div></div>
+<hr>
+
+<h2 id="results">Results</h2>
+
+<p class="small-font">1 QConv2D Layer</p>
+<p class="small-font">Best Test Acc: <b>0.6998</b>  |  AUC: <b>0.7518</b></p>
+
+<h2><img src="images/EP2-QCNNHybrid-Sparse-JAX.png" height="auto" width="1200px"></h2>
+
+<h2 id="results-on-qg">Results on QG</h2>
+<p>Center crop to (40,40). Log Scaled. Standardized.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒════════╤════════════════════╤═══════════════════╤════════════════════╤═════════════╕
+│ Data   │ Train size         │ Val size          │ Test size          │ Dims        │
+╞════════╪════════════════════╪═══════════════════╪════════════════════╪═════════════╡
+│ X      │ (95000, 40, 40, 1) │ (5000, 40, 40, 1) │ (20000, 40, 40, 1) │ (40, 40, 1) │
+├────────┼────────────────────┼───────────────────┼────────────────────┼─────────────┤
+│ y      │ (95000, 2)         │ (5000, 2)         │ (20000, 2)         │ (2,)        │
+╘════════╧════════════════════╧═══════════════════╧════════════════════╧═════════════╛
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>╒══════════════╤═══════╤═══════╤════════╤═══════╤══════════════════════════╕
+│ Type         │   Min │   Max │   Mean │   Std │ Samples for each class   │
+╞══════════════╪═══════╪═══════╪════════╪═══════╪══════════════════════════╡
+│ Train Images │  -0.2 │ 14.61 │     -0 │  1    │ [47500, 47500]           │
+├──────────────┼───────┼───────┼────────┼───────┼──────────────────────────┤
+│ Val Images   │  -0.2 │ 14.61 │      0 │  1.01 │ [2500, 2500]             │
+├──────────────┼───────┼───────┼────────┼───────┼──────────────────────────┤
+│ Test Images  │  -0.2 │ 14.61 │      0 │  1    │ [10000, 10000]           │
+╘══════════════╧═══════╧═══════╧════════╧═══════╧══════════════════════════╛
+</code></pre></div></div>
+<hr>
+
+<h2 id="results-1">Results</h2>
+
+<p class="small-font">1 QConv2D Layer</p>
+<p class="small-font">Best Test Acc: <b>0.6367</b>  |  AUC: <b>0.6887</b></p>
+
+<h2 id="-1"><img src="images/QG2-QCNNHybrid-Sparse-JAX.png" height="auto" width="1200px"></h2>
+
+<h2 id="results-on-ep-dataset-with-qcnn-hybrid">Results on EP dataset with QCNN Hybrid</h2>
+
+<p class="small-font">380k Train | 20k val | 98k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
+<p class="small-font">Best Test Acc: <b>0.6875</b>  |  AUC: <b>0.7415</b></p>
+
+<p><img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1/acc.png" height="auto" width="420px">
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1/loss.png" height="auto" width="420px">
+<br>
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1/val_acc.png" height="auto" width="420px">
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<h2 id="resnet-residual-block-like-architecture">Resnet Residual block like Architecture</h2>
+
+<p class="small-font">380k Train | 20k val | 98k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
+<p class="small-font">Best Test Acc: <b>0.6875</b>  |  AUC: <b>0.7406</b></p>
+
+<p><img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1-res-arch/acc.png" height="auto" width="420px">
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1-res-arch/loss.png" height="auto" width="420px">
+<br>
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1-res-arch/val_acc.png" height="auto" width="420px">
+<img src="images/EP3-QCNNHybrid-Sparse-JAX-1-1-res-arch/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<h2 id="results-on-qg-dataset-with-qcnn-hybrid">Results on QG dataset with QCNN Hybrid</h2>
+
+<p class="small-font">665k Train | 35k val | 93.9k Test - 1 QConv2D Layer - 1 qubit - 1 layer</p>
+<p class="small-font">Test Acc: <b>0.6215</b>  |  AUC: <b>0.6666</b></p>
+
+<p><img src="images/QG3-QCNNHybrid-Sparse-JAX-1-1/acc.png" height="auto" width="420px">
+<img src="images/QG3-QCNNHybrid-Sparse-JAX-1-1/loss.png" height="auto" width="420px">
+<br>
+<img src="images/QG3-QCNNHybrid-Sparse-JAX-1-1/val_acc.png" height="auto" width="420px">
+<img src="images/QG3-QCNNHybrid-Sparse-JAX-1-1/val_loss.png" height="auto" width="420px"></p>
+
+<hr>
+
+<h2 id="status">Status</h2>
+<div class="container">
+
+<div class="col">
+<span style="color:#97D077"> Done: </span>
+
+- Trained QCNNHybrid on EP and QG with JAX + Pennylane.
+- Created methods to handle multiple filters for Convolution.
+</div>
+
+<div class="col">
+<span style="color:#7EA6E0"> Goals for next week: </span>
+
+- Training with more filters and QConv layers might increase AUC.
+- Training fully Quantum models.
+- Benchmarking classical CNNs with similar parameters.
+</div>
+
+<div class="col">
+<span style="color:#F19C99"> Questions: </span>
+
+- Feedback about Accuracy? Is it reasonable?
+
+</div>
+
+</div>
+
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/Gopal-Dahale/gsoc-22-progress">gsoc-22-progress</a> is maintained by <a href="https://github.com/Gopal-Dahale">Gopal-Dahale</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
