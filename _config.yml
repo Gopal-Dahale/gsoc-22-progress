@@ -1,3 +1,16 @@
+title: GSoC 22 Progress
+email: dahalegopal@gmail.com
+author: Gopal-Dahale
+description: >- # this means to ignore newlines until "baseurl:"
+  This is a very personal blog. I don't write blogs for anyone, but
+  just record what I do or what I think. So there are many things
+  wrong and you may have different thoughts. It would be nice if I
+  share knowledge and thoughts rather than criticism. It will be
+  great help if you give and teach your knowledge and thoughts to me.
+  
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://gopal-dahale.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 # Build settings
 theme: jekyll-theme-cayman
 plugins:
